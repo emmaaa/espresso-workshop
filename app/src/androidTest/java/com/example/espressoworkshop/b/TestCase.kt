@@ -1,7 +1,8 @@
-package com.example.espressoworkshop
+package com.example.espressoworkshop.b
 
 import android.content.Intent
 import androidx.test.rule.ActivityTestRule
+import com.example.espressoworkshop.MainActivity
 import org.junit.After
 import org.junit.Rule
 
