@@ -27,6 +27,7 @@ class LoginTest : TestCase() {
     @Test
     fun successfulLoginTest() {
 
+        //todo write a test to check that error messages are not displayed when correct login is entered
 
     }
 
