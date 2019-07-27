@@ -1,27 +1,19 @@
-package com.example.espressoworkshop.a
+package com.example.espressoworkshop.c
 
 import android.content.Intent
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.rule.ActivityTestRule
 import com.example.espressoworkshop.MainActivity
-import com.example.espressoworkshop.R
 import org.junit.After
 import org.junit.Rule
-import org.junit.Test
 
-class LoginTest {
+open class TestCase {
 
     @get:Rule
     val activityRule = ActivityTestRule(MainActivity::class.java, true, false)
 
-    //todo 1: why does this always pass?....
-    @Test
-    fun launchAppTest() {
+    fun launchTheApp() {
         val intent = Intent()
         activityRule.launchActivity(intent)
-
-        onView(withId(R.id.password_field))
     }
 
     @After

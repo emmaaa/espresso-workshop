@@ -1,4 +1,4 @@
-package com.example.espressoworkshop.c.gherkin.`when`
+package com.example.espressoworkshop.d.gherkin.`when`
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click

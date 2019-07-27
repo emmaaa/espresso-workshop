@@ -1,4 +1,4 @@
-package com.example.espressoworkshop.c.gherkin.then
+package com.example.espressoworkshop.d.gherkin.then
 
 object UserAssertions {
 

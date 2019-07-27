@@ -11,7 +11,7 @@ open class TestCase {
     @get:Rule
     val activityRule = ActivityTestRule(MainActivity::class.java, true, false)
 
-    fun launchApp() {
+    fun launchTheApp() {
         val intent = Intent()
         activityRule.launchActivity(intent)
     }

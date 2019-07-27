@@ -5,7 +5,6 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.hasErrorText
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.example.espressoworkshop.R
-import com.example.espressoworkshop.b.TestCase
 import com.example.espressoworkshop.c.gherkin.`when`.When
 import com.example.espressoworkshop.c.gherkin.given.Given
 import org.junit.Test
@@ -13,21 +12,22 @@ import org.junit.Test
 class LoginTest : TestCase() {
 
     @Test
-    fun badLoginTest() {
+    fun unsuccessfulLoginTest() {
         Given.user.launchesTheApp()
 
-        When.user.entersIncorrectLogin()
+        When.user.entersEmailAddress("an incorrect email address")
 
-        //todo this is failing and i don't know why...
+        //todo 3: this would be nicer as Then.userSees.incorrectEmailError()
         onView(withId(R.id.email_field)).check(matches(hasErrorText("Incorrect email")))
-        onView(withId(R.id.email_field)).check(matches(hasErrorText("Incorrect password")))
 
+        //todo 4: user needs to enter an incorrect password first
+        onView(withId(R.id.email_field)).check(matches(hasErrorText("Incorrect password")))
     }
 
     @Test
     fun successfulLoginTest() {
 
-        //todo write a test to check that error messages are not displayed when correct login is entered
+        //todo 5: write a test to check that error messages are not displayed when correct login is entered
 
     }
 
