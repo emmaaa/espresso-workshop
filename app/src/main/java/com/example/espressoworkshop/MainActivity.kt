@@ -15,8 +15,8 @@ class MainActivity : AppCompatActivity(), DoggoFragment.OnFragmentInteractionLis
     private lateinit var passwordField: EditText
     private lateinit var signInButton: Button
 
-    private val correctEmail = "hello@world.com"
-    private val correctPassword = "super_secure"
+    private val correctEmail = "a"
+    private val correctPassword = "a"
 
     override fun onFragmentInteraction(doggoImageView: ImageView) {
         val doggoImage = findViewById<ImageView>(R.id.doggo_image_view)
@@ -43,7 +43,6 @@ class MainActivity : AppCompatActivity(), DoggoFragment.OnFragmentInteractionLis
             if (password != correctPassword) showPasswordError()
 
             if (email == correctEmail && password == correctPassword) {
-                signInButton.visibility = View.GONE
                 showDoggos()
             }
 
@@ -52,7 +51,6 @@ class MainActivity : AppCompatActivity(), DoggoFragment.OnFragmentInteractionLis
     }
 
     private fun resetLoginScreen() {
-        signInButton.visibility = View.VISIBLE
         emailField.error = null
         passwordField.error = null
     }

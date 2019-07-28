@@ -13,6 +13,5 @@
             android:background="@android:color/white"
             android:contentDescription="@string/a_heckin_good_boi"
             android:clickable="true"
-            android:focusable="true"
-            tools:visibility="visible"/>
+            android:focusable="true"/>
 </FrameLayout>
