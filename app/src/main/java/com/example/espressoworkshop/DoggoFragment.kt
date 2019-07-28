@@ -1,53 +1,51 @@
 package com.example.espressoworkshop
 
 import android.content.Context
-import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import android.widget.ImageView
+import androidx.fragment.app.Fragment
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Activities that contain this fragment must implement the
- * [DoggoFragment.OnFragmentInteractionListener] interface
- * to handle interaction events.
- * Use the [DoggoFragment.newInstance] factory method to
- * create an instance of this fragment.
- *
- */
 class DoggoFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-    private var listener: OnFragmentInteractionListener? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private var listener: OnFragmentInteractionListener? = null
+    private lateinit var doggoImage: ImageButton
+    private var currentDoggo = 1
+    private val doggos = intArrayOf(
+        R.drawable.doggo1,
+        R.drawable.doggo2,
+        R.drawable.doggo3,
+        R.drawable.doggo4,
+        R.drawable.doggo5,
+        R.drawable.doggo6,
+        R.drawable.doggo7,
+        R.drawable.doggo8,
+        R.drawable.doggo9,
+        R.drawable.doggo10
+    )
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        doggoImage = getView()?.findViewById(R.id.doggo_image_view) as ImageButton
+
+        doggoImage.setOnClickListener {
+            changeDoggos()
+            newInstance()
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_doggo, container, false)
+    private fun changeDoggos() {
+        if (currentDoggo == doggos.count()) currentDoggo = 0
+
+        doggoImage.setImageResource(doggos[currentDoggo])
+        currentDoggo++
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    fun onButtonPressed(uri: Uri) {
-        listener?.onFragmentInteraction(uri)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_doggo, container, false)
     }
 
     override fun onAttach(context: Context) {
@@ -76,27 +74,17 @@ class DoggoFragment : Fragment() {
      * for more information.
      */
     interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        fun onFragmentInteraction(uri: Uri)
+
+        fun onFragmentInteraction(doggoImageView: ImageView) {
+
+        }
+
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment DoggoFragment.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            DoggoFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+        fun newInstance() {
+            DoggoFragment().apply { arguments = Bundle() }
+        }
     }
 }

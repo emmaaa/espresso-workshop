@@ -1,7 +1,6 @@
 package com.example.espressoworkshop
 
 import android.app.Activity
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -10,17 +9,22 @@ import android.widget.EditText
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
-
 class MainActivity : AppCompatActivity(), DoggoFragment.OnFragmentInteractionListener {
-
-    override fun onFragmentInteraction(uri: Uri) {
-        // leave blank
-    }
 
     private lateinit var emailField: EditText
     private lateinit var passwordField: EditText
     private lateinit var signInButton: Button
-    private lateinit var doggoImage: ImageView
+
+    private val correctEmail = "hello@world.com"
+    private val correctPassword = "super_secure"
+
+    override fun onFragmentInteraction(doggoImageView: ImageView) {
+        val doggoImage = findViewById<ImageView>(R.id.doggo_image_view)
+        doggoImage.setOnClickListener {
+            doggoImage.setImageResource(R.drawable.doggo2)
+        }
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,9 +33,6 @@ class MainActivity : AppCompatActivity(), DoggoFragment.OnFragmentInteractionLis
         emailField = findViewById(R.id.email_field)
         passwordField = findViewById(R.id.password_field)
         signInButton = findViewById(R.id.sign_in_button)
-
-        val correctEmail = "a"
-        val correctPassword = "a"
 
         signInButton.setOnClickListener {
             resetLoginScreen()
