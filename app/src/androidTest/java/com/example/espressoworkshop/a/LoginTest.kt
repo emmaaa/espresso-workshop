@@ -21,7 +21,7 @@ class LoginTest {
         val intent = Intent()
         activityRule.launchActivity(intent)
 
-        onView(withId(R.id.password_field))
+        onView(withId(R.id.sign_in_text))
     }
 
     @After

@@ -22,22 +22,15 @@ class MainActivity : AppCompatActivity() {
             val email = emailField.toString()
             val password = passwordField.toString()
 
-            when (email) {
-                correctEmail -> {
-                    // email is correct
-                }
-                else -> emailField.error = "Incorrect email"
+            when {
+//                (email == correctEmail && password == correctPassword) -> showDoggos()
+
+                (email != correctEmail) -> emailField.error = "Incorrect email"
+                (password != correctPassword) -> passwordField.error = "Incorrect password"
             }
 
-            when (password) {
-                correctPassword -> {
-                    // password is correct
-                }
-                else -> passwordField.error = "Incorrect password"
         }
 
     }
-
-}
 
 }

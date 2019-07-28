@@ -16,7 +16,7 @@ class LoginTest : TestCase() {
 
         //todo 2: i should probably put this assertion into a method somehow,
         // then i could use the same method to check the email field too
-        onView(withId(R.id.password_field)).check(matches(isDisplayed()))
+        onView(withId(R.id.sign_in_text)).check(matches(isDisplayed()))
     }
 
 
