@@ -15,8 +15,8 @@ class MainActivity : AppCompatActivity(), DoggoFragment.OnFragmentInteractionLis
     private lateinit var passwordField: EditText
     private lateinit var signInButton: Button
 
-    private val correctEmail = "a"
-    private val correctPassword = "a"
+    private val correctEmail = "test@login.com"
+    private val correctPassword = "secure"
 
     override fun onFragmentInteraction(doggoImageView: ImageView) {
         val doggoImage = findViewById<ImageView>(R.id.doggo_image_view)
