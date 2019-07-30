@@ -5,7 +5,10 @@ import com.example.espressoworkshop.c.gherkin.given.Given
 import com.example.espressoworkshop.c.gherkin.then.Then
 import org.junit.Test
 
-class LoginTest : TestCase() {
+// You might notice that we aren't extending TestCase any more, even though we use the same method!
+// this is a benefit of ths Given.user.launchesTheApp() structure
+
+class LoginTest {
 
 
     private val correctEmail = "test@login.com"

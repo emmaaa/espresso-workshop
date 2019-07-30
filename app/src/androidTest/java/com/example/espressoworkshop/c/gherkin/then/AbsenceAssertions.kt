@@ -9,14 +9,20 @@ import org.hamcrest.CoreMatchers.not
 
 object AbsenceAssertions {
 
+    // Each of these assertions have the same behaviour, just with a different view and string
+    // it makes sense to put this duplication into a method
     fun incorrectEmailError() = apply {
-        onView(withId(R.id.email_field))
-            .check(matches(not(hasErrorText("Incorrect email"))))
-
+        assertViewDoesNotShowError(R.id.email_field, "Incorrect email")
     }
 
     fun incorrectPasswordError() = apply {
-        onView(withId(R.id.password_field))
-            .check(matches(not(hasErrorText("Incorrect password"))))
+        assertViewDoesNotShowError(R.id.password_field, "Incorrect password")
+    }
+
+
+    // This is our helper method that we can reuse
+    private fun assertViewDoesNotShowError(view: Int, errorText: String) {
+        onView(withId(view))
+            .check(matches(not(hasErrorText(errorText))))
     }
 }

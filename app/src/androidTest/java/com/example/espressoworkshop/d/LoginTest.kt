@@ -5,21 +5,17 @@ import com.example.espressoworkshop.c.gherkin.given.Given
 import com.example.espressoworkshop.c.gherkin.then.Then
 import org.junit.Test
 
-class LoginTest : TestCase() {
+class LoginTest {
 
     @Test
     fun signInJourney() {
-
         Given.user.launchesTheApp()
 
         When.user.signsInWithCorrectDetails()
-
-        Then.userSees.doggo()
+        Then.userSees.doggo1()
 
         When.user.clicksDoggo()
-
-        Then.userSees.doggo()
-
+        Then.userSees.doggo1()
     }
 
 }

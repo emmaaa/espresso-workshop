@@ -17,7 +17,6 @@ class LoginTest {
     @get:Rule
     val activityRule = ActivityTestRule(MainActivity::class.java, true, false)
 
-    //todo 1: why does this always pass?....
     @Test
     fun launchAppTest() {
         val intent = Intent()

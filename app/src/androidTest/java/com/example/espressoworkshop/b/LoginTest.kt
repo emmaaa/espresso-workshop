@@ -11,11 +11,8 @@ class LoginTest : TestCase() {
 
         launchTheApp()
 
-        //todo 2: i should probably put this assertion into a method somehow,
-        // then i could use the same method to check the email field too
         assertDisplayingView(R.id.sign_in_text)
         assertDisplayingView(R.id.email_field)
     }
-
 
 }
