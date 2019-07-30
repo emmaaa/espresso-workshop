@@ -1,10 +1,7 @@
 package com.example.espressoworkshop.b
 
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.example.espressoworkshop.R
+import com.example.espressoworkshop.b.Assertions.assertDisplayingView
 import org.junit.Test
 
 class LoginTest : TestCase() {
@@ -16,12 +13,9 @@ class LoginTest : TestCase() {
 
         //todo 2: i should probably put this assertion into a method somehow,
         // then i could use the same method to check the email field too
-        onView(withId(R.id.sign_in_text)).check(matches(isDisplayed()))
+        assertDisplayingView(R.id.sign_in_text)
+        assertDisplayingView(R.id.email_field)
     }
 
 
-//
-//    fun assertDisplayingView(view: Matcher<View>) {
-//        onView(withId(view)).check(matches(isDisplayed()))
-//    }
 }

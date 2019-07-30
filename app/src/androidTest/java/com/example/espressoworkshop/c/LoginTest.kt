@@ -1,34 +1,42 @@
 package com.example.espressoworkshop.c
 
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.hasErrorText
-import androidx.test.espresso.matcher.ViewMatchers.withId
-import com.example.espressoworkshop.R
 import com.example.espressoworkshop.c.gherkin.`when`.When
 import com.example.espressoworkshop.c.gherkin.given.Given
+import com.example.espressoworkshop.c.gherkin.then.Then
 import org.junit.Test
 
 class LoginTest : TestCase() {
+
+
+    private val correctEmail = "test@login.com"
+    private val correctPassword = "secure"
 
     @Test
     fun unsuccessfulLoginTest() {
         Given.user.launchesTheApp()
 
-        When.user.entersEmailAddress("an incorrect email address")
+        When.user
+            .entersEmailAddress("an incorrect email address")
+            .entersPassword("isdfisahdfi")
+            .selectsSignInButton()
 
-        //todo 3: this would be nicer as Then.userSees.incorrectEmailError()
-        onView(withId(R.id.email_field)).check(matches(hasErrorText("Incorrect email")))
-
-        //todo 4: user needs to enter an incorrect password first
-        onView(withId(R.id.email_field)).check(matches(hasErrorText("Incorrect password")))
+        Then.userSees
+            .incorrectEmailError()
+            .incorrectPasswordError()
     }
 
     @Test
     fun successfulLoginTest() {
+        Given.user.launchesTheApp()
 
-        //todo 5: write a test to check that error messages are not displayed when correct login is entered
+        When.user
+            .entersEmailAddress(correctEmail)
+            .entersPassword(correctPassword)
+            .selectsSignInButton()
 
+        Then.userCannotSee
+            .incorrectEmailError()
+            .incorrectPasswordError()
     }
 
 }
